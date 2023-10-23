@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
+
+.TextXl {
+    @apply text-xl xs:text-2xl md:text-3xl
+}
+
+.TextLg {
+    @apply  text-lg xs:text-xl md:text-2xl
+}
+
+.TextBase{
+    @apply  text-base xs:text-lg md:text-xl 
+}
+
+.TextSm{
+    @apply  text-sm xs:text-base md:text-lg
+}
+.TextXs{
+    @apply  text-xs xs:text-sm md:text-base
+}
+
+.BoutonMenu{
+    @apply bg-secondary text-white cursor-pointer rounded-xl w-36 md:w-44 transition m-2 px-2 py-4 
+    hover:bg-action hover:scale-95 select-none
+}
+
+.BoutonMenuBurger{
+    @apply bg-secondary text-white cursor-pointer rounded-xl  transition px-2 py-4
+    hover:bg-action hover:scale-95 self-center w-4/5 m-4
+}
+
+
+.active{
+    @apply bg-action hover:scale-100
+}
+
+.text-balance{
+    text-wrap: balance;
+}
