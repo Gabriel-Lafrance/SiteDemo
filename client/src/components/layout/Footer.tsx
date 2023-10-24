@@ -16,18 +16,18 @@ const Footer = () => {
                     <h2 className="text-sm font-semibold text-center uppercase">Heure d'ouverture</h2>
                     <hr className="my-2 border-white sm:mx-auto"/>
                     <div className="flex flex-col font-medium text-center md:text-left">
-                            <span>Lundi au Jeudi : 10h00 - 20h00</span>
-                            <span >Vendredi et Samedi : 10h00 - 22h00</span>
+                            <span>Lundi - Jeudi : 10h00 - 20h00</span>
+                            <span >Vendredi & Samedi : 10h00 - 22h00</span>
                             <span >Dimanche : 12h00 - 20h00</span>
                     </div>
                 </div>
                 <div>
-                    <h2 className="text-sm font-semibold text-center uppercase">Nous Contacter</h2>
+                    <h2 className="text-sm font-semibold text-center uppercase">Contactez-nous</h2>
                     <hr className="my-2 border-white sm:mx-auto"/>
                     <div className="font-medium flex flex-col justify-around text-center md:text-left">
                         <div>
                             <AiOutlinePhone className="inline-block mb-1 mr-1 "/>
-                            <a href="" className="hover:underline">418-750-3543</a>
+                            <a href="" className="hover:underline">+1 (123) 456-7890</a>
                         </div>
                         <div>
                             <AiFillShop className="inline-block mb-1 mr-1 "/>

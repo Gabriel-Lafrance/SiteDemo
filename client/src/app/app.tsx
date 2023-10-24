@@ -1,6 +1,7 @@
 
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
+import UpButton from "../components/unique/UpButton";
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,7 +20,9 @@ export function App() {
           <Route path='/propos' element={<Propos/>} />
           <Route path='/contact' element={<Contact/>} />
         </Routes>
+        <UpButton/>
       <Footer/>
+      
     </Router>
   );
 }

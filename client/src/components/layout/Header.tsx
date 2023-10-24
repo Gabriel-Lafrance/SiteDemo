@@ -1,5 +1,4 @@
 import { NavLink as Link  } from "react-router-dom";
-import * as Menubar from '@radix-ui/react-menubar';
 import logo from "../../assets/logo-placeholder-image.png"
 import React from "react";
 
@@ -43,7 +42,7 @@ const Header = () => {
                         <Link onClick={Switch}  to='/' className="BoutonMenu">Acceuil</Link>
                         <Link onClick={Switch}  to='/Menu' className="BoutonMenu">Notre Menu</Link>
                         <Link onClick={Switch}  to='/Propos' className="BoutonMenu">À Propos</Link>
-                        <Link onClick={Switch}  to='/Contact' className="BoutonMenu">Nous Contacter</Link>
+                        <Link onClick={Switch}  to='/Contact' className="BoutonMenu">Contactez-nous</Link>
                     </div>
                 </div >
                 <div className={largeurEcran <= breakpoint ? "mr-8 my-auto select-none" : " hidden w-0 h-0 select-none"}>

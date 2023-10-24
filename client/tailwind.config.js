@@ -15,10 +15,10 @@ module.exports = {
       'xs' : ['12px','12px'],
       sm : ['16px','16px'],
       base: ['20px','20px'],
-      lg: ['28px','28px'],
-      xl : ['36px','36px'],
-      '2xl' : ['40px','40px'],
-      '3xl': ['44px','44px'],
+      lg: ['24px','24px'],
+      xl : ['28px','28px'],
+      '2xl' : ['32px','32px'],
+      '3xl': ['px','44px'],
     },
     screens: {
       'xs': '535px',
@@ -35,8 +35,8 @@ module.exports = {
       },
       colors: {
         'primary': '#18181b',
-        'secondary': '#4599ff',
-        'action': '#4551ff',
+        'secondary': '#2438f0',
+        'action': '#000c7d',
       },
       keyframes :{
         dropDown : {
