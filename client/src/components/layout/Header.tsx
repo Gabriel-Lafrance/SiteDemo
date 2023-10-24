@@ -35,7 +35,7 @@ const Header = () => {
         <header className="sticky top-0 z-20 text-center  bg-gray-100 h-fit w-auto flex flex-col border-b border-gray-300">
             <div className="h-24 flex flex-row justify-between">
                 <a href="" target="_blank" className="">
-                    <img src={logo} className="w-full h-24 object-center object-cover" alt="Logo" loading='lazy'/>
+                    <img src={logo} className="w-24 h-24 object-center object-cover" alt="Logo" loading='lazy'/>
                 </a>
                 <div className={largeurEcran > breakpoint ? "w-full my-auto" : "hidden w-0 h-0"}>
                     <div className="TextXs flex flex-row justify-end align-middle items-center last:mr-2">

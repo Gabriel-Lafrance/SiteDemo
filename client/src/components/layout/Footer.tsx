@@ -11,7 +11,7 @@ const Footer = () => {
                     <img src={logo} className="h-24 mr-3" alt="Logo" />
                 </a>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full w-[95%]  md:w-2/3 bg-secondary p-4 rounded-2xl text-white">
+            <div className="grid grid-cols-1 h-fit sm:grid-cols-2 gap-6 w-[95%]  md:w-2/3 bg-secondary p-4 rounded-2xl text-white">
                 <div className="">
                     <h2 className="text-sm font-semibold text-center uppercase">Heure d'ouverture</h2>
                     <hr className="my-2 border-white sm:mx-auto"/>
@@ -21,7 +21,7 @@ const Footer = () => {
                             <span >Dimanche : 12h00 - 20h00</span>
                     </div>
                 </div>
-                <div>
+                <div className="block">
                     <h2 className="text-sm font-semibold text-center uppercase">Contactez-nous</h2>
                     <hr className="my-2 border-white sm:mx-auto"/>
                     <div className="font-medium flex flex-col justify-around text-center md:text-left">
