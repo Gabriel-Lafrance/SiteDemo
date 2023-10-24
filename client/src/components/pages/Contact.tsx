@@ -1,7 +1,7 @@
 const Contact = () => {
     return ( 
-        <section className="bg-white" id="contact">
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:pt-12">
+        <section className="bg-white w-full h-fit" id="contact">
+            <div className="mx-auto max-w-7xl px-4 pt-2 sm:px-6 lg:px-8 lg:pt-12">
                 <div className="mb-4">
                     <div className="mb-6 w-full text-center sm:text-center md:mx-auto md:mb-12">
                         <h2
@@ -12,7 +12,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+            <div className="mx-auto w-4/5 px-4">
                 <div className="flex items-stretch justify-center">
                     <div className="grid md:grid-cols-2">
                         <div className="h-full pr-6">
