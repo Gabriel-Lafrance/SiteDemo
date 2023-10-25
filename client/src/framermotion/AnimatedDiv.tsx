@@ -1,41 +1,29 @@
-import { HTMLMotionProps, Variants, motion, useAnimation  } from "framer-motion";
+import { Transition, TransitionClasses } from "@headlessui/react";
+import { useIntersectionObserver } from "@uidotdev/usehooks";
+
 import { ReactNode } from "react";
 import  React  from "react";
-import { useInView } from "react-intersection-observer";
 
 
-interface AnimatedDivProps extends HTMLMotionProps<"div"> {
-    variant: Variants;
+
+interface AnimatedDivProps extends React.HTMLProps<HTMLDivElement> {
     children: ReactNode;
-    duration : number;
+    variant : TransitionClasses;
   }
     
-    export const AnimatedDiv: React.FC<AnimatedDivProps> = ({ variant, children, duration, ...props }) => {
+    export const AnimatedDiv: React.FC<AnimatedDivProps> = ({ children, variant,  className }) => {
 
-      const controls = useAnimation();
-      const [ref, inView] = useInView({ threshold : 0 });
-
-      React.useEffect(() => {
-        if (inView) {
-          controls.start("visible");
-        }
-      }, [controls, inView]);
+      const [ref, entry] = useIntersectionObserver({
+        threshold: 0,
+        root: null,
+        rootMargin: "0px",
+      });
+      
 
       return (
-          <motion.div
-              ref={ref}
-              initial="hidden"
-              animate={controls}
-              exit="hidden"
-              variants={variant}
-              transition={{
-                ease : "anticipate",
-                duration : duration
-              }}
-              {...props}
-              >
-              {children}
-          </motion.div>
+          <Transition ref={ref} as={'div'} show={entry?.isIntersecting} {...variant} className={className}>
+            {children}
+          </Transition>
 
       );
     };
