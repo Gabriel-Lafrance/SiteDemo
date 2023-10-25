@@ -1,6 +1,3 @@
-import Carousel from "../builder/Carousel";
-
-
 import Placeholder1 from '../../assets/placeholder1.webp';
 import Placeholder2 from '../../assets/placeholder2.webp';
 import Placeholder3 from '../../assets/placeholder3.webp';
@@ -8,6 +5,7 @@ import Placeholder4 from '../../assets/placeholder4.webp';
 import Placeholder5 from '../../assets/placeholder5.webp';
 import Placeholder6 from '../../assets/placeholder6.webp';
 import CardDouble from "../builder/CardDouble";
+import Slider from "../builder/Slider";
 
 type CardDoubleProps = {
     img: string,
@@ -41,8 +39,9 @@ const Acceuil = () => {
     const slides = [Placeholder4, Placeholder5, Placeholder6];
 
     return ( 
-        <section className="flex flex-col items-center">
-            <Carousel slides={slides}/>
+        
+        <section className="flex flex-col items-center w-full">
+            <Slider slides={slides}/>
             <div className=" w-4/5 text-center"> 
                 <span className="mx-auto TextXl text-secondary">Bienvenue sur mon site !</span>
                 <hr className="my-6 border-secondary sm:mx-auto  lg:my-8"/>

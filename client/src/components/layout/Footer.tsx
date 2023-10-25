@@ -1,5 +1,7 @@
+import { AnimatedDiv } from "../../framermotion/AnimatedDiv"
 import logo from "../../assets/logo-placeholder-image.png"
 import { AiOutlinePhone, AiFillShop, AiOutlineMail } from "react-icons/ai"
+import { fadeIn } from "../../framermotion/Animation";
 
 const Footer = () => {
     return (  
@@ -7,11 +9,11 @@ const Footer = () => {
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div className="flex flex-col md:flex-row items-center md:justify-between">
             <div className="mb-6 md:mb-0">
-                <a href="" className="flex items-center">
+                <a href="" className="flex items-center animate-fadeIn">
                     <img src={logo} className="h-24 mr-3" alt="Logo" />
                 </a>
             </div>
-            <div className="grid grid-cols-1 h-fit sm:grid-cols-2 gap-6 w-[95%]  md:w-2/3 bg-secondary p-4 rounded-2xl text-white">
+            <div className="grid grid-cols-1 h-fit sm:grid-cols-2 gap-6 w-[95%]  md:w-2/3 bg-secondary p-4 rounded-2xl text-white animate-fadeIn">
                 <div className="">
                     <h2 className="text-sm font-semibold text-center uppercase">Heure d'ouverture</h2>
                     <hr className="my-2 border-white sm:mx-auto"/>
@@ -42,10 +44,9 @@ const Footer = () => {
             </div>
         </div>
         <hr className="my-6 border-secondary sm:mx-auto  lg:my-8"/>
-        <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-secondary sm:text-center">© 2023 <a className="hover:underline">Gabriel Lafrance™</a>. All Rights Reserved.
-            </span>
-        </div>
+        <AnimatedDiv variant={fadeIn} duration={0.2} className="sm:flex sm:items-center sm:justify-between">
+            <span className="text-sm text-secondary sm:text-center">© 2023 <a className="hover:underline">Gabriel Lafrance™</a>. All Rights Reserved.</span>
+        </AnimatedDiv>
         </div>
     </footer>
     );

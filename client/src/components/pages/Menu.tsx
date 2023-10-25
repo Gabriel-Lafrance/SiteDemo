@@ -1,5 +1,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import Placeholder1 from "../../assets/placeholder1.webp"
+import { AnimatedDiv } from "../../framermotion/AnimatedDiv";
+import { fadeIn } from "../../framermotion/Animation";
 
 const categories = [
     {
@@ -355,7 +357,7 @@ const Menu = () => {
                     <Tabs.Content key={index} className="bg-white px-5 h-fit flex-1 flex items-center justify-center text-[15px] leading-none  select-none outline-none cursor-default" value={"tab" + index}>
                         <div className=" grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 w-full">
                         {categorie.variant.map((variente, index : number) =>
-                            <div key={index} className="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
+                            <AnimatedDiv key={index} variant={fadeIn} duration={0.3}  className=" duration-500 flex flex-col bg-gray-200 hover:scale-105  rounded-lg p-4 m-2">
                                 <div className="h-40 bg-gray-400  rounded-2xl">
                                     <img src={Placeholder1} alt="Img Produit" loading="lazy" className=" w-full h-full object-cover rounded-2xl" />
                                 </div>
@@ -375,7 +377,7 @@ const Menu = () => {
                                         ))}
                                     </div>
                                 </div>
-                            </div>)}
+                            </AnimatedDiv>)}
                         </div>
                     </Tabs.Content>
                 )}
@@ -385,15 +387,3 @@ const Menu = () => {
 }
  
 export default Menu;
-
-                            {/*<p className=" text-center m-8">Format : Petit | Moyen | Grand</p>
-                            {categorie.variant.map((variente, index : number) => 
-                            <div className="flex m-8 flex-row items-center justify-center">
-                                {variente.variante} : 
-                                {variente.prix.map((prix, index : number) => 
-                                <div>
-                                    {prix}$ | 
-
-
-                                </div>)}
-                                </div>)}*/}
