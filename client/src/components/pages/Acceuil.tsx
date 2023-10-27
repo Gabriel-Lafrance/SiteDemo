@@ -1,17 +1,19 @@
+import React, { MutableRefObject } from 'react';
 import Placeholder1 from '../../assets/placeholder1.webp';
 import Placeholder2 from '../../assets/placeholder2.webp';
 import Placeholder3 from '../../assets/placeholder3.webp';
 import Placeholder4 from '../../assets/placeholder4.webp';
 import Placeholder5 from '../../assets/placeholder5.webp';
 import Placeholder6 from '../../assets/placeholder6.webp';
-import CardDouble from "../builder/CardDouble";
 import Slider from "../builder/Slider";
+import { AnimatedDiv } from '../../framermotion/AnimatedDiv';
+import { fadeInLeft, fadeInRight, slideInLeft, slideInRight } from '../../framermotion/Animation';
 
-type CardDoubleProps = {
+type infoProps = {
     img: string,
     titre: string,
     texte: string,
-    inverse : boolean;
+    inverse : boolean,
   }
 
 const infos = [    
@@ -45,8 +47,30 @@ const Acceuil = () => {
             <div className=" w-4/5 text-center"> 
                 <span className="mx-auto TextXl text-secondary">Bienvenue sur mon site !</span>
                 <hr className="my-6 border-secondary sm:mx-auto  lg:my-8"/>
-                {infos.map((info : CardDoubleProps, index : number) =>
-                    <CardDouble key={index} {...info}/>
+                {infos.map((info : infoProps, index : number) => (
+                    info.inverse ? 
+                    <AnimatedDiv key={index} variant={fadeInLeft} className="grid grid-cols-1 w-auto sm:grid-cols-2 h-fit mx-auto m-8  drop-shadow-2xl">
+                        <div className="h-fit p-4 sm:h-96 w-full bg-secondary text-white  mb-0 sm:mb-8 rounded-t-2xl sm:rounded-tr-none sm:rounded-bl-2xl sm:rounded-br-none">
+                            <div className="flex flex-col h-full justify-center">
+                                <span className="TextLg m-2">{info.titre}</span>
+                                <hr className="my-2 mx-auto w-4/5 border-white "/>
+                                <p className="text-md mx-4  text-balance">{info.texte}</p>
+                            </div>
+                        </div>
+                        <img  className="w-full object-cover h-fit sm:h-96 rounded-b-2xl sm:rounded-b-none sm:rounded-r-2xl sm:rounded-br-2xl bg-gray-200 mb-0 sm:mb-8 " src={info.img} alt="" loading="lazy" />
+                    </AnimatedDiv> 
+                    :
+                    <AnimatedDiv key={index} variant={fadeInRight}  className="grid grid-cols-1 sm:grid-cols-2 w-auto h-fit mx-auto m-8  drop-shadow-2xl">
+                        <img  className="w-full h-fit  sm:h-96 object-cover rounded-t-2xl sm:rounded-tr-none sm:rounded-bl-2xl sm:rounded-br-none" src={info.img} alt="" loading="lazy"/>
+                        <div className="h-fit p-4 sm:h-96  bg-secondary text-white mb-8 sm:mb-8  rounded-b-2xl sm:rounded-b-none sm:rounded-r-2xl sm:rounded-br-2xl">
+                            <div className="flex flex-col h-full justify-center">
+                                <span className="TextLg m-2">{info.titre}</span>
+                                <hr className="my-2 mx-auto w-4/5 border-white "/>
+                                <p className="text-md mx-4  text-balance text-w">{info.texte}</p>
+                            </div>
+                        </div>
+                    </AnimatedDiv>
+                )   
                 )}
             </div>
         </section>

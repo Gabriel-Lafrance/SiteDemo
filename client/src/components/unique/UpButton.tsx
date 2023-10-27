@@ -29,7 +29,7 @@ const UpButton = () => {
         animate={EstInRange ? {opacity : 0} : {opacity : 1}}
         exit={{ opacity: 0.5 }}
         transition={{opacity: { duration: 1 }}}
-        onClick={scrollUp} className="m-8 fixed right-0 bottom-0 rounded-full shadow bg-white text-secondary hover:text-action">
+        onClick={scrollUp} className="m-8 fixed right-0 bottom-0 rounded-full shadow  bg-white/80 text-secondary hover:text-action">
             <FaCircleChevronUp size={32}/>
         </motion.button>
     );

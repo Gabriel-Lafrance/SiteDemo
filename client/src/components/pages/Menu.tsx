@@ -1,7 +1,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import Placeholder1 from "../../assets/placeholder1.webp"
 import { AnimatedDiv } from "../../framermotion/AnimatedDiv";
-import { fadeIn, popin } from "../../framermotion/Animation";
+import { popIn } from "../../framermotion/Animation";
 
 const categories = [
     {
@@ -354,10 +354,10 @@ const Menu = () => {
                 )}
                 </Tabs.List>
                 {categories.map((categorie, index : number) =>
-                    <Tabs.Content key={index} className="bg-white px-5 h-fit flex-1 flex items-center justify-center text-[15px] leading-none  select-none outline-none cursor-default" value={"tab" + index}>
-                        <div className=" grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 w-full">
+                    <Tabs.Content key={index + categories.length} className="bg-white px-5 h-fit flex-1 flex items-center justify-center text-[15px] leading-none  select-none outline-none cursor-default" value={"tab" + index}>
+                        <div className=" grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-full">
                         {categorie.variant.map((variente, index : number) =>
-                            <AnimatedDiv key={index} variant={popin}   className=" duration-500 flex flex-col bg-gray-200 hover:scale-105  rounded-lg p-4 m-2">
+                            <AnimatedDiv key={index + categories.length * 2} variant={popIn} className="duration-500 flex flex-col w-full h-full bg-gray-200 rounded-lg p-4 m-0">
                                 <div className="h-40 bg-gray-400  rounded-2xl">
                                     <img src={Placeholder1} alt="Img Produit" loading="lazy" className=" w-full h-full object-cover rounded-2xl" />
                                 </div>
@@ -367,7 +367,7 @@ const Menu = () => {
                                     <hr className="my-1 w-full border-secondary sm:mx-auto "/>
                                     <div className="flex flex-col items-center justify-center w-full">
                                         {variente.grandeur.map((e, index : number) => (
-                                            <div key={index} className="p-1 m-1 leading-none text-center rounded font-medium text-sm ">
+                                            <div key={index + categories.length * 3} className="p-1 m-1 leading-none text-center rounded font-medium text-sm ">
                                                 {e.grosseur != "" ? 
                                                 <div>{e.grosseur} : {e.prix}$ </div>
                                                 :
@@ -377,7 +377,8 @@ const Menu = () => {
                                         ))}
                                     </div>
                                 </div>
-                            </AnimatedDiv>)}
+                            </AnimatedDiv>
+                            )}
                         </div>
                     </Tabs.Content>
                 )}

@@ -28,7 +28,7 @@ const Slider = ({autoSlide = false,autoSlideInterval = 3000,slides}: {autoSlide?
     };
 
   return (
-    <div className="w-full relative overflow-hidden h-[32rem] animate-fadeIn mb-12">
+    <div className="w-full relative overflow-hidden h-[40rem] animate-fadeIn mb-12">
         <div className="h-full w-[300vw] flex transition-all ease-in-out duration-1000 " style={{transform:`translateX(-${currentIndex * 100}vw)`}}>
         {slides.map((slide, slideIndex : number) => (
                <img  key={slideIndex} className="w-screen h-full object-cover"src={slide} alt="" />     

@@ -44,82 +44,67 @@ export const fadeInUpBig = {
   visible: { opacity: 1, y: 0 },
 };
 
-export const fadeOut = {
-  hidden: { opacity: 1 },
-  visible: { opacity: 0 },
-};
-
-export const fadeOutDown = {
-  hidden: { opacity: 1, y: 0 },
-  visible: { opacity: 0, y: "20px" },
-};
-
-export const fadeOutDownBig = {
-  hidden: { opacity: 1, y: 0 },
-  visible: { opacity: 0, y: "2000px" },
-};
-
-export const fadeOutLeft = {
-  hidden: { opacity: 1, x: 0 },
-  visible: { opacity: 0, x: "-20px" },
-};
-
-export const fadeOutLeftBig = {
-  hidden: { opacity: 1, x: 0 },
-  visible: { opacity: 0, x: "-2000px" },
-};
-
-export const fadeOutRight = {
-  hidden: { opacity: 1, x: 0 },
-  visible: { opacity: 0, x: "20px" },
-};
-
-export const fadeOutRightBig = {
-  hidden: { opacity: 1, x: 0 },
-  visible: { opacity: 0, x: "2000px" },
-};
-
-export const fadeOutUp = {
-  hidden: { opacity: 1, y: 0 },
-  visible: { opacity: 0, y: "-20px" },
-};
-
-export const fadeOutUpBig = {
-  hidden: { opacity: 1, y: 0 },
-  visible: { opacity: 0, y: "-2000px" },
-  
-};
-
 export const slideInDown = {
   hidden: { opacity: 0, y: "-2000px" },
   visible: { opacity: 1, y: 0 },
 };
 
-export const slideInLeft = {
-  hidden: { opacity: 0, x: "-2000px" },
-  visible: { opacity: 1, x: 0 },
+
+export const simple = {
+  initial: { opacity: 0 },
+  visible: { opacity: 1 },
+
+};
+
+export const spinIn = {
+  initial: { opacity: 0, rotate: -120, scale: 0.5 },
+  visible: { opacity: 1, rotate: 0, scale: 1 },
+};
+
+export const notification = {
+  initial: { opacity: 0, translateY: 2 },
+  visible: { opacity: 1, translateY: 0, translateX: 2 },
+};
+
+export const dropdown = {
+  initial: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 },
 };
 
 export const slideInRight = {
-  hidden: { opacity: 0, x: "2000px" },
-  visible: { opacity: 1, x: 0 },
+  initial: { translateX: '100px' },
+  visible: { opacity: 1, translateX: '0' },
 };
 
-export const slideOutLeft = {
-  hidden: { opacity: 1, x: "0" },
-  visible: { opacity: 0, x: "-2000px" },
+export const slideInLeft = {
+  initial: { translateX: '-100px' },
+  visible: { opacity: 1, translateX: '0' },
 };
 
-export const slideOutRight = {
-  hidden: { opacity: 1, x: "0" },
-  visible: { opacity: 0, x: "2000px" },
+export const popIn = {
+  initial: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 },
+
 };
 
-export const slideOutUp = {
-  hidden: { opacity: 1, y: "0" },
-  visible: { opacity: 0, y: "-2000px" },
-};
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 export const simple = {
   enter: 'transition-opacity duration-75',
   enterFrom: 'opacity-0',
@@ -156,7 +141,16 @@ export const dropdown = {
   leaveTo: 'transform opacity-0 scale-95',
 };
 
-export const slideIn = {
+export const slideInRight = {
+  enter: 'transform transition ease-in-out duration-500 sm:duration-700',
+  enterFrom: '-translate-x-full',
+  enterTo: 'translate-x-0',
+  leave: 'transform transition ease-in-out duration-500 sm:duration-700',
+  leaveFrom: 'translate-x-0',
+  leaveTo: '-translate-x-full',
+};
+
+export const slideInLeft = {
   enter: 'transform transition ease-in-out duration-500 sm:duration-700',
   enterFrom: 'translate-x-full',
   enterTo: 'translate-x-0',
@@ -165,11 +159,11 @@ export const slideIn = {
   leaveTo: 'translate-x-full',
 };
 
-export const popin = {
-  enter: 'ease-out duration-300',
+export const popIn = {
+  enter: 'ease-in duration-500',
   enterFrom: 'opacity-0 scale-95',
   enterTo: 'opacity-100 scale-100',
-  leave: 'ease-in duration-200',
+  leave: 'ease-out duration-500',
   leaveFrom: 'opacity-100 scale-100',
-  leaveTo: 'opacity-0 scale-95',
-};
+  leaveTo: '',
+}; */
