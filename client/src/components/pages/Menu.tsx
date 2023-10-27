@@ -1,7 +1,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import Placeholder1 from "../../assets/placeholder1.webp"
-import { AnimatedDiv } from "../../framermotion/AnimatedDiv";
-import { popIn } from "../../framermotion/Animation";
+import { AnimatedDiv } from "../../animation/AnimatedDiv";
+import { popIn } from "../../animation/Animation";
 
 const categories = [
     {

@@ -71,16 +71,6 @@ export const dropdown = {
   visible: { opacity: 1, scale: 1 },
 };
 
-export const slideInRight = {
-  initial: { translateX: '100px' },
-  visible: { opacity: 1, translateX: '0' },
-};
-
-export const slideInLeft = {
-  initial: { translateX: '-100px' },
-  visible: { opacity: 1, translateX: '0' },
-};
-
 export const popIn = {
   initial: { opacity: 0, scale: 0.95 },
   visible: { opacity: 1, scale: 1 },

@@ -1,7 +1,7 @@
-import { AnimatedDiv } from "../../framermotion/AnimatedDiv"
+import { AnimatedDiv } from "../../animation/AnimatedDiv"
 import Placeholder4 from "../../assets/placeholder4.webp"
 import Placeholder5 from "../../assets/placeholder5.webp"
-import { fadeInRight, fadeInLeft } from "../../framermotion/Animation"
+import { fadeInRight, fadeInLeft } from "../../animation/Animation"
 
 const Propos = () => {
     return ( 

@@ -1,6 +1,7 @@
 import { NavLink as Link  } from "react-router-dom";
 import logo from "../../assets/logo-placeholder-image.png"
 import React from "react";
+import { Transition } from "@headlessui/react";
 
 
 const Header = () => {
@@ -11,6 +12,7 @@ const Header = () => {
 
     {/* Switch On/Off pour l'ouverture/fermeture du menu Burger*/ }
     function Switch() {  
+
         setActif(!estActif);
     }
 
@@ -32,7 +34,7 @@ const Header = () => {
     })
 
     return (
-        <header className="sticky top-0 z-20 text-center  bg-gray-100 h-fit w-auto flex flex-col border-b border-gray-300">
+        <header className={`${estActif ? 'max-h-screen ease-in' : 'max-h-24 ease-out delay-200'} transition-all  duration-500 ease sticky top-0 z-20 text-center  bg-gray-200 h-fit w-auto flex flex-col border-b border-gray-300`}>
             <div className="h-24 flex flex-row justify-between">
                 <a href="" target="_blank" className="">
                     <img src={logo} className="w-24 h-24 object-center object-cover" alt="Logo" loading='lazy'/>
@@ -44,7 +46,8 @@ const Header = () => {
                         <Link onClick={Switch}  to='/Propos' className="BoutonMenu">À Propos</Link>
                         <Link onClick={Switch}  to='/Contact' className="BoutonMenu">Contactez-nous</Link>
                     </div>
-                </div >
+                </div>
+
                 <div className={largeurEcran <= breakpoint ? "mr-8 my-auto select-none" : " hidden w-0 h-0 select-none"}>
                     <div  onClick={Switch} className={estActif ? "tham-active tham hover:opacity-100 tham-e-squeeze tham-w-10" : "tham hover:opacity-100 tham-e-squeeze tham-w-10"}>
                         <div className="group tham-box">
@@ -53,15 +56,24 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div className={estActif && largeurEcran <= breakpoint ? "w-screen " : "hidden"}>
-                <div className='h-auto w-4/5 flex flex-col items-center m-4 mx-auto'>
-                    <Link onClick={Switch}  to='/' className="BoutonMenuBurger">Acceuil</Link>
-                    <Link onClick={Switch}  to='/Menu' className="BoutonMenuBurger">Notre Menu</Link>
-                    <Link onClick={Switch}  to='/Propos' className="BoutonMenuBurger">À Propos</Link>
-                    <Link onClick={Switch}  to='/Contact' className="BoutonMenuBurger">Nous Contacter</Link>
-                </div>
+            <Transition
+                show={estActif} // Condition pour afficher la transition
+                enter="transition ease-in delay-300" // Styles d'entrée
+                enterFrom="opacity-0" // Style initial d'entrée
+                enterTo="opacity-100" // Style final d'entrée
+                leave="transition ease-in-out duration-500" // Styles de sortie
+                leaveFrom="opacity-80" // Style initial de sortie
+                leaveTo="opacity-0" // Style final de sortie
+                >
+            <div className='h-auto w-4/5 flex flex-col items-center m-4 mx-auto'>
+                <Link onClick={Switch}  to='/' className="BoutonMenuBurger">Acceuil</Link>
+                <Link onClick={Switch}  to='/Menu' className="BoutonMenuBurger">Notre Menu</Link>
+                <Link onClick={Switch}  to='/Propos' className="BoutonMenuBurger">À Propos</Link>
+                <Link onClick={Switch}  to='/Contact' className="BoutonMenuBurger">Nous Contacter</Link>
             </div>
+            </Transition>
         </header>
+        
     );
 }
 

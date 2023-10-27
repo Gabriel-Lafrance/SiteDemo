@@ -6,8 +6,8 @@ import Placeholder4 from '../../assets/placeholder4.webp';
 import Placeholder5 from '../../assets/placeholder5.webp';
 import Placeholder6 from '../../assets/placeholder6.webp';
 import Slider from "../builder/Slider";
-import { AnimatedDiv } from '../../framermotion/AnimatedDiv';
-import { fadeInLeft, fadeInRight, slideInLeft, slideInRight } from '../../framermotion/Animation';
+import { AnimatedDiv } from '../../animation/AnimatedDiv';
+import { fadeInLeft, fadeInRight} from '../../animation/Animation';
 
 type infoProps = {
     img: string,

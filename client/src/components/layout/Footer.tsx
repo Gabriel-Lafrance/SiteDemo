@@ -1,7 +1,7 @@
-import { AnimatedDiv } from "../../framermotion/AnimatedDiv"
+import { AnimatedDiv } from "../../animation/AnimatedDiv"
 import logo from "../../assets/logo-placeholder-image.png"
 import { AiOutlinePhone, AiFillShop, AiOutlineMail } from "react-icons/ai"
-import { fadeIn, popIn } from "../../framermotion/Animation";
+import { fadeIn, popIn } from "../../animation/Animation";
 
 const Footer = () => {
     return (  
