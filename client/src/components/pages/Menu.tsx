@@ -2,6 +2,10 @@ import * as Tabs from "@radix-ui/react-tabs";
 import Placeholder1 from "../../assets/placeholder1.webp"
 import { AnimatedDiv } from "../../animation/AnimatedDiv";
 import { popIn } from "../../animation/Animation";
+import React from "react";
+import { Fragment, useState } from 'react'
+import { Listbox, Transition } from '@headlessui/react'
+import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 const categories = [
     {
@@ -330,7 +334,27 @@ const categories = [
     },
 ]
 
+
 const Menu = () => {
+
+    const [menuOption, setMenuOption] = React.useState(categories[0])
+
+    var breakpoint : number = 760; {/* Width en pixel*/
+
+    const [largeurEcran, setLargeurEcran] = React.useState(window.innerWidth); 
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            setLargeurEcran(window.innerWidth);
+        }
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    })
+
+
     return ( 
         <div className="select-none mb-16">
             <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8 lg:pt-12">
@@ -345,19 +369,64 @@ const Menu = () => {
                 </div>
             </div>
             <Tabs.Root className="flex my-8 flex-col w-4/5 mx-auto" defaultValue="tab0">
-                <Tabs.List className="flex w-full flex-col sm:flex-row mx-auto " aria-label="Manage your account">
-                {categories.map((categorie, index : number) =>
+                <Tabs.List className="flex w-4/5 flex-col sm:flex-row mx-auto " aria-label="Manage your account">
+                {largeurEcran > breakpoint ?
+                    categories.map((categorie, index : number) =>
                     <Tabs.Trigger key={index} className="bg-secondary rounded-2xl m-2 p-4 sm:rounded-none sm:mx-0 sm:first:rounded-l-2xl sm:last:rounded-r-2xl text-white px-1 h-[45px] flex-1 flex items-center justify-center TextSm leading-none select-none  hover:bg-action  data-[state=active]:bg-action" 
                     value={"tab" + index}>
                         {categorie.titre}
-                    </Tabs.Trigger>
-                )}
+                    </Tabs.Trigger>)
+                    :
+                    <Listbox value={menuOption} onChange={setMenuOption}>
+                        <div className="w-[92%] mx-auto mb-8">
+                        <Listbox.Button className="relative w-full cursor-default rounded-lg bg-secondary py-2 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                            <span className="block  leading-normal truncate text-center text-white text-lg my-1">{menuOption.titre}</span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                <ChevronUpDownIcon className="h-5 w-5 text-white" aria-hidden="true"/>
+                            </span>
+                        </Listbox.Button>
+                        <Transition
+                            as={Fragment}
+                            enter='transform ease-out duration-300 transition'
+                            enterFrom='translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2'
+                            enterTo='translate-y-0 opacity-100 sm:translate-x-0'
+                            leave='transition ease-in duration-100'
+                            leaveFrom='opacity-100'
+                            leaveTo='opacity-0'
+                        >
+                            <Listbox.Options className=" mt-2 h-fit w-full overflow-auto rounded-md bg-secondary text-base shadow-lg ">
+                            {categories.map((categorie, index : number) => (
+                                <Tabs.Trigger key={index}  value={"tab" + index} className="w-full">
+                                    <Listbox.Option key={index} className={({ active }) => `  leading-normal  text-center relative cursor-cursortext-lg select-none h-fit py-2 pl-10 pr-4 text-lg text-white ${ active ? 'bg-action' : 'bg-secondary'}`} value={categorie}>
+                                    {({ selected }) => (
+                                        <>
+                                        <span
+                                            className={`block truncate ${
+                                            selected ? 'font-medium' : 'font-normal'
+                                            }`}
+                                        >
+                                            {categorie.titre}
+                                        </span>
+                                        {selected ? (
+                                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                                            </span>
+                                        ) : null}
+                                        </>
+                                    )}
+                                    </Listbox.Option>
+                                </Tabs.Trigger>
+                            ))}
+                            </Listbox.Options>
+                        </Transition>
+                    </div>
+                    </Listbox>
+                }
                 </Tabs.List>
                 {categories.map((categorie, index : number) =>
                     <Tabs.Content key={index + categories.length} className="bg-white px-5 h-fit flex-1 flex items-center justify-center text-[15px] leading-none  select-none outline-none cursor-default" value={"tab" + index}>
-                        <div className=" grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-full">
+                        <div className=" grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-4/5">
                         {categorie.variant.map((variente, index : number) =>
-                            <AnimatedDiv key={index + categories.length * 2} variant={popIn} className="duration-500 flex flex-col w-full h-full bg-gray-200 rounded-lg p-4 m-0">
+                            <AnimatedDiv key={index + categories.length * 2} variant={popIn} className="duration-500 flex flex-col w-full mx-auto h-full bg-gray-200 rounded-lg p-4 m-0">
                                 <div className="h-40 bg-gray-400  rounded-2xl">
                                     <img src={Placeholder1} alt="Img Produit" loading="lazy" className=" w-full h-full object-cover rounded-2xl" />
                                 </div>
@@ -385,6 +454,7 @@ const Menu = () => {
             </Tabs.Root>
         </div>
      );
+    }
 }
  
 export default Menu;

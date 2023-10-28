@@ -35,8 +35,8 @@ module.exports = {
       },
       colors: {
         'primary': '#18181b',
-        'secondary': '#2438f0',
-        'action': '#000c7d',
+        'secondary': '#c70212',
+        'action': '#ab0210',
       },
       transitionProperty: {
         'height': 'height',

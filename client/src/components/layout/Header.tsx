@@ -41,10 +41,10 @@ const Header = () => {
                 </a>
                 <div className={largeurEcran > breakpoint ? "w-full my-auto" : "hidden w-0 h-0"}>
                     <div className="TextXs flex flex-row justify-end align-middle items-center last:mr-2">
-                        <Link onClick={Switch}  to='/' className="BoutonMenu">Acceuil</Link>
-                        <Link onClick={Switch}  to='/Menu' className="BoutonMenu">Notre Menu</Link>
-                        <Link onClick={Switch}  to='/Propos' className="BoutonMenu">À Propos</Link>
-                        <Link onClick={Switch}  to='/Contact' className="BoutonMenu">Contactez-nous</Link>
+                        <Link  to='/' className="BoutonMenu">Acceuil</Link>
+                        <Link  to='/Menu' className="BoutonMenu">Notre Menu</Link>
+                        <Link  to='/Propos' className="BoutonMenu">À Propos</Link>
+                        <Link  to='/Contact' className="BoutonMenu">Contactez-nous</Link>
                     </div>
                 </div>
 

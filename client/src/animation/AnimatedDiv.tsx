@@ -15,7 +15,7 @@ export const AnimatedDiv: React.FC<AnimatedDivProps> = ({ children, variant, cla
 
 
   const ref = React.useRef<HTMLDivElement | null>(null)
-  const entry = useIntersectionObserver(ref, { threshold : 0.4 });
+  const entry = useIntersectionObserver(ref, { threshold : 0.1 });
   let isVisible = !!entry?.isIntersecting
   const [dejaAfficher, setAfficher] = React.useState(false);
 
